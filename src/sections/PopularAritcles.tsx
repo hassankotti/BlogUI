@@ -1,39 +1,52 @@
-import React,{useRef,useState} from 'react'
+import React, { useRef, useState } from 'react'
 import ArticleCard from '../components/ArticleCard'
 import articles from '../data/Articles';
-import ArticleType from '../types/ArticleType';
 import { Tab } from '@headlessui/react'
 import { ChevronRightIcon } from '@heroicons/react/solid';
 import { ChevronLeftIcon } from '@heroicons/react/solid';
 const PopularArticles = () => {
-  let scrl = useRef(null);
+  let scrl;
+  if (typeof HTMLDivElement === 'undefined')
+    scrl = useRef(null);
+  else
+    scrl = useRef<HTMLDivElement>(null);
+
+
+
+
   const [scrollX, setscrollX] = useState(0);
   const [scrolEnd, setscrolEnd] = useState(false);
 
   //Slide click
   const slide = (shift) => {
-    scrl.current.scrollLeft += shift;
-    setscrollX(scrollX + shift);
+    if (null !== scrl.current) {
+      scrl.current.scrollLeft += shift;
+      setscrollX(scrollX + shift);
 
-    if (
-      Math.floor(scrl.current.scrollWidth - scrl.current.scrollLeft) <=
-      scrl.current.offsetWidth
-    ) {
-      setscrolEnd(true);
-    } else {
-      setscrolEnd(false);
+      if (
+        Math.floor(scrl.current.scrollWidth - scrl.current.scrollLeft) <=
+        scrl.current.offsetWidth
+      ) {
+        setscrolEnd(true);
+      } else {
+        setscrolEnd(false);
+      }
     }
-  };
+
+  }
+
 
   const scrollCheck = () => {
-    setscrollX(scrl.current.scrollLeft);
-    if (
-      Math.floor(scrl.current.scrollWidth - scrl.current.scrollLeft) <=
-      scrl.current.offsetWidth
-    ) {
-      setscrolEnd(true);
-    } else {
-      setscrolEnd(false);
+    if (null !== scrl.current) {
+      setscrollX(scrl.current.scrollLeft);
+      if (
+        Math.floor(scrl.current.scrollWidth - scrl.current.scrollLeft) <=
+        scrl.current.offsetWidth
+      ) {
+        setscrolEnd(true);
+      } else {
+        setscrolEnd(false);
+      }
     }
   };
 
@@ -50,14 +63,14 @@ const PopularArticles = () => {
             {scrollX !== 0 && (
               <ChevronRightIcon className="h-8 w-8 text-gray-500 border border-gray-400 p-2 rounded-full" onClick={() => slide(180)} />)}
             {!scrolEnd && (
-            <ChevronLeftIcon className="h-8 w-8 text-gray-500 border border-gray-400 p-2 rounded-full" onClick={() => slide(-180)} />)}
+              <ChevronLeftIcon className="h-8 w-8 text-gray-500 border border-gray-400 p-2 rounded-full" onClick={() => slide(-180)} />)}
           </div>
         </div>
         <Tab.Panels>
           <Tab.Panel>
-            <div className="grid  gap-8 mt-9  grid-flow-col auto-cols-max overflow-hidden overflow-x-scroll no-scrollbar" ref={scrl} onScroll={scrollCheck}>
+            <div className="grid  gap-8 mt-9  grid-flow-col auto-cols-max overflow-hidden overflow-x-scroll no-scrollbar" ref={scrl} onScroll={scrollCheck} id="scr">
               {
-                articles.map((article: ArticleType, index) => {
+                articles.map((article, index) => {
                   return <ArticleCard article={article} key={index} />;
                 })
               }
@@ -66,7 +79,7 @@ const PopularArticles = () => {
           <Tab.Panel>
             <div className="grid  gap-8 mt-9  grid-flow-col auto-cols-max">
               {
-                articles.map((article: ArticleType, index) => {
+                articles.map((article, index) => {
                   return <ArticleCard article={article} key={index} />;
                 })
               }

@@ -1,14 +1,25 @@
 import './App.css'
 import Home from './pages/Home';
-import { BrowserRouter, Route } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 import ReportStudies from './pages/ReportStudies';
 import Articles from './pages/Articles';
-import Routes from './Routes';
+import React from 'react';
+import { createMemoryHistory } from "history";
 
 function App() {
+  const history = createMemoryHistory();
 
   return (
-    <Routes />
+   
+    <Router history={history}>
+        <Route>
+          <Route exact path='/' render={() => <Home />} />
+          <Route exact path='/home' render={() => <Home />} />
+          <Route path='/reports_and_studies' render={() => <ReportStudies />} />
+          <Route path='/articles' render={() => <Articles />} />
+        </Route>
+      </Router>
+
   );
 }
 

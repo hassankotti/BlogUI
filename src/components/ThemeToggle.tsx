@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import useDarkMode from "../utils/useDarkMode";
 import { MoonIcon, SunIcon } from "@heroicons/react/outline"
 

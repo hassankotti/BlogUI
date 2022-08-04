@@ -1,5 +1,7 @@
 import { ChevronLeftIcon } from "@heroicons/react/outline";
 import articles from "../data/Articles";
+import React, { useState } from "react";
+
 const MostRead = () => {
     return (
         <div className="py-8 mb-0">

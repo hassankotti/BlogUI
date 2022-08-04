@@ -12,8 +12,7 @@ const Routes = () => {
                 <Route exact path='/home' component={Home} />
                 <Route path='/reports_and_studies' component={ReportStudies} />
                 <Route path='/articles' component={Articles} />
-            </Route>
-            
+            </Route>     
         </BrowserRouter>
     )
 }

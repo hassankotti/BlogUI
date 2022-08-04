@@ -1,6 +1,6 @@
 import { Transition } from '@headlessui/react'
 import { MoonIcon, SunIcon, SearchIcon, XIcon } from "@heroicons/react/outline"
-import { useState } from 'react'
+import React, { useState } from "react";
 const Search = () => {
     const [isShowing, setIsShowing] = useState(true)
 

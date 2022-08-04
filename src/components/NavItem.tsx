@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink, useRouteMatch } from "react-router-dom";
-import NavItemType from "../types/NavItemType";
-const NavItem = ({ item }: NavItemType) => {
+const NavItem = ({ item }) => {
   let match = useRouteMatch({
     path: item.path,
     exact: item.activeOnlyWhenExact,

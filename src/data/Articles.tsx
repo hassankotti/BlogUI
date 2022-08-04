@@ -1,5 +1,4 @@
-import ArticleType from '../types/ArticleType';
-const articles: ArticleType[] = [
+const articles = [
   {
     title: "ماهو مستقبل التجارة الالكترونية",
     category: "أفكار البزنس",

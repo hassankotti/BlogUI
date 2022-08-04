@@ -1,6 +1,5 @@
 import React from 'react'
-import ArticleCardType from '../types/ArticleType';
-const ArticleCard = ({ article }: ArticleCardType) => {
+const ArticleCard = ({ article }) => {
     return (
         <div className="w-64 border bg-white dark:bg-gray-800 dark:border-gray-700">
             <div className="flex-col items-center overflow-hidden">

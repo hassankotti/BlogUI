@@ -1,6 +1,5 @@
 
-import  NavItemType  from "../types/NavItemType";
-let navlist: NavItemType[] = [
+let navlist = [
   {
     title: "الرئيسية",
     path: "/home",
@@ -15,4 +14,4 @@ let navlist: NavItemType[] = [
   },
 ];
 
-export default navlist ;
+export default navlist;
