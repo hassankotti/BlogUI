@@ -10,8 +10,8 @@ import LoadingSpinner from '../components/LoadingSpinner'
 import Helmet from 'react-helmet'
 import { useParams } from 'react-router-dom'; import NoData from '../components/NoData';
 const Article = () => {
-    let { id } = useParams();
-    const article = articles[id ?? 0];
+    let params = useParams() as ArticleID;
+    const article = articles[params.id ?? 0];
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         if (isLoading) {
@@ -39,5 +39,7 @@ const Article = () => {
         </Layout>
     )
 }
-
+export type ArticleID = {
+    id: string;
+};
 export default Article
