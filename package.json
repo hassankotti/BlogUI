@@ -1,7 +1,9 @@
 {
-  "name": "blogui",
+  "name": "modawana",
   "private": true,
   "version": "0.0.0",
+  "homepage": "/home",
+
   "scripts": {
     "build": "tsc && vite build",
     "preview": "vite preview",
