@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useDarkMode from "../utils/useDarkMode";
+import useDarkMode from "../hooks/useDarkMode";
 import { MoonIcon, SunIcon } from "@heroicons/react/outline"
 
 const ThemeToggle = () => {
@@ -7,9 +7,9 @@ const ThemeToggle = () => {
 
   return (
     <button
-      aria-label='Color Mode'
-      className='flex items-center border p-1 rounded-full justify-center transition duration-150 ease-in-out  hover:text-teal-500 focus:outline-none 
-      text-gray-600 dark:text-gray-100  dark:hover:text-teal-500    focus:ring-gray-700 focus:text-gray-500'>
+      aria-label='Color-Mode'
+      className='flex items-center dark:bg-teal-500 dark:border-0 border dark:border-heavy-metal-400 p-1 rounded-full justify-center transition duration-150 ease-in-out  hover:text-teal-500 focus:outline-none 
+      text-heavy-metal-600 dark:text-white  dark:hover:text-heavy-metal-500    focus:ring-heavy-metal-700 focus:text-heavy-metal-500'>
       {
         colorTheme === "light" ? (
           <MoonIcon

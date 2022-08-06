@@ -1,20 +1,43 @@
 import React from 'react'
-import { Route, BrowserRouter } from 'react-router-dom';
+import { createBrowserHistory, createMemoryHistory } from "history";
 import Articles from './pages/Articles';
+import Article from './pages/Article';
 import Home from './pages/Home';
-import NotFound from './pages/NotFound'
+import NotFound from './pages/NotFound';
 import ReportStudies from './pages/ReportStudies';
-const Routes = () => {
-    return (
-        <BrowserRouter basename='/'>
-            <Route path="/" component={Home}>
-                <Route exact path='/' component={Home} />
-                <Route exact path='/home' component={Home} />
-                <Route path='/reports_and_studies' component={ReportStudies} />
-                <Route path='/articles' component={Articles} />
-            </Route>     
-        </BrowserRouter>
-    )
+
+const routerHistory = createBrowserHistory()
+const history = createMemoryHistory();
+
+const router = {
+    history: routerHistory,
+    routes: [
+        {
+            path: '/home',
+            component: Home,
+            exact : true
+        },
+        {
+            path: '/articles',
+            component: Articles,
+            exact : false
+        },
+        {
+            path: '/article/:id',
+            component: Article,
+            exact : false
+        },
+        {
+            path: '/reports_and_studies',
+            component: ReportStudies,
+            exact : false
+        },
+       /* {
+            path: '*',
+            component: NotFound,
+            exact : false
+        },*/
+    ]
 }
 
-export default Routes
+export default router

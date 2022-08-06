@@ -3,9 +3,11 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 const Layout = ({ children }) => {
   return (
-    <div className='w-full min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-gray-400 font-normal'>
+    <div className='w-full  bg-gray-50 dark:bg-heavy-metal-900 dark:text-heavy-metal-400 font-normal'>
+      {/*  Site navbar */}
       <Navbar />
-      <main className="mx-auto">{children}</main>
+      <main className="mx-auto flex flex-col min-h-screen overflow-hidden">{children}</main>
+      {/*  Site footer */}
       <Footer />
     </div>
   );

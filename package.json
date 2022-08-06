@@ -7,16 +7,20 @@
     "preview": "vite preview",
     "dev:build-server": "NODE_ENV=development webpack --config webpack.server.cjs --mode=development -w",
     "dev:start": "nodemon ./server-build/index.js",
-    "dev": "npm-run-all --parallel build dev:*"
+    "dev": "npm-run-all --parallel build dev:*",
+    "vite": "vite"
   },
   "dependencies": {
     "@headlessui/react": "^1.6.6",
     "@heroicons/react": "^1.0.6",
+    "axios": "^0.27.2",
     "babel-loader": "^8.2.5",
+    "copy-webpack-plugin": "^11.0.0",
     "express": "^4.18.1",
     "file-loader": "^6.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^5.3.3",
     "react-showdown": "^2.3.1"
   },

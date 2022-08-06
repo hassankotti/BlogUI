@@ -5,14 +5,13 @@ import { Tab } from '@headlessui/react'
 import { ChevronRightIcon } from '@heroicons/react/solid';
 import { ChevronLeftIcon } from '@heroicons/react/solid';
 const PopularArticles = () => {
+
+
   let scrl;
   if (typeof HTMLDivElement === 'undefined')
     scrl = useRef(null);
   else
     scrl = useRef<HTMLDivElement>(null);
-
-
-
 
   const [scrollX, setscrollX] = useState(0);
   const [scrolEnd, setscrolEnd] = useState(false);
@@ -34,7 +33,7 @@ const PopularArticles = () => {
     }
 
   }
-
+  const tabs = ['الاكثر مشاهدة', 'الاكثر شهرة', 'الاكثر قراءة'];
 
   const scrollCheck = () => {
     if (null !== scrl.current) {
@@ -49,28 +48,50 @@ const PopularArticles = () => {
       }
     }
   };
-
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+  }
   return (
-    <div className="py-8 mb-0">
+    <section className="py-8 mb-0 space-y-6">
       <Tab.Group>
         <div className='flex items-center space-x-2 space-x-reverse justify-between'>
           <Tab.List>
-            <Tab className="h-10 px-4 py-2 -mb-px font-bold text-sm text-center text-gray-600 bg-transparent border-b-2 border-teal-500 sm:text-base dark:border-teal-400 dark:text-teal-300 whitespace-nowrap focus:outline-none">ألاكثر مشاهدة</Tab>
-            <Tab className="h-10 px-4 py-2 -mb-px text-sm text-center text-gray-700 bg-transparent border-b-2 border-transparent sm:text-base dark:text-white whitespace-nowrap cursor-base focus:outline-none hover:border-gray-400">ألاكثر شهرة</Tab>
-            <Tab className="h-10 px-4 py-2 -mb-px text-sm text-center text-gray-700 bg-transparent border-b-2 border-transparent sm:text-base dark:text-white whitespace-nowrap cursor-base focus:outline-none hover:border-gray-400">ألاكثر قراءة</Tab>
+            {
+              tabs.map((tab, index) => (
+                <Tab key={index} className={({ selected }) =>
+                  classNames('h-10 px-4 py-2 -mb-px  text-sm text-center dark:text-white text-gray-600 bg-transparent sm:text-base  whitespace-nowrap focus:outline-none'
+                    , selected ? ' border-b-2 border-teal-500 font-semibold' : '')}>
+                  {tab}
+                </Tab>))
+            }
+
           </Tab.List>
           <div className='flex items-center space-x-2 space-x-reverse'>
             {scrollX !== 0 && (
-              <ChevronRightIcon className="h-8 w-8 text-gray-500 border border-gray-400 p-2 rounded-full" onClick={() => slide(180)} />)}
+              <button onClick={() => slide(180)} aria-label='scroll-right'>
+                <ChevronRightIcon className="h-8 w-8 text-gray-500 border border-gray-400 p-2 rounded-full" />
+              </button>)}
             {!scrolEnd && (
-              <ChevronLeftIcon className="h-8 w-8 text-gray-500 border border-gray-400 p-2 rounded-full" onClick={() => slide(-180)} />)}
+              <button onClick={() => slide(-180)} aria-label='scroll-left'>
+                <ChevronLeftIcon className="h-8 w-8 text-gray-500 border border-gray-400 p-2 rounded-full" />
+              </button>)}
+
           </div>
         </div>
-        <Tab.Panels>
+        <Tab.Panels className='overflow-hidden overflow-x-scroll no-scrollbar'>
           <Tab.Panel>
-            <div className="grid  gap-8 mt-9  grid-flow-col auto-cols-max overflow-hidden overflow-x-scroll no-scrollbar" ref={scrl} onScroll={scrollCheck} id="scr">
+            <div className="grid  gap-8 mt-9  grid-flow-col auto-cols-max" ref={scrl} onScroll={scrollCheck} id="scr">
               {
-                articles.map((article, index) => {
+                articles.slice(0, 3).map((article, index) => {
+                  return <ArticleCard article={article} key={index} />;
+                })
+              }
+            </div>
+          </Tab.Panel>
+          <Tab.Panel>
+            <div className="grid  gap-8 mt-9  grid-flow-col auto-cols-max">
+              {
+                articles.slice(0, 4).map((article, index) => {
                   return <ArticleCard article={article} key={index} />;
                 })
               }
@@ -85,12 +106,37 @@ const PopularArticles = () => {
               }
             </div>
           </Tab.Panel>
-          <Tab.Panel>
-            content 3
-          </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
-    </div>
+
+      <div>
+        <div className="flex items-start">
+          <div className='divide-y  p-3 space-y-0'>
+            {
+              articles.slice(0, 3).map((article, index) => (
+                <div key={index} className="flex flex-col items-start md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-800  dark:hover:bg-heavy-metal-700 px-2 py-3">
+                  <div className="flex flex-col justify-between leading-normal space-y-3">
+                    <span className="border-spacing-2 border-r-2 border-teal-500 pr-2 text-sm font-medium uppercase">{article.category}</span>
+                    <h5 className="mb-2 text-xl	 font-medium tracking-tight text-heavy-metal-900 dark:text-white">{article.title}</h5>
+                    <p className="mb-3 font-normal text-heavy-metal-500 dark:text-heavy-metal-400">{article.description}</p>
+                    <a href="" className="my-4">{"بواسطة " + article.author}</a>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+          <div className="group relative w-full h-[590px] aspect-square text-white bg-gray-900">
+            <img src={articles[0].imgUrl} className="object-cover aspect-square w-full h-[590px] [mask-image:linear-gradient(180deg,white,rgba(255,255,255,.2))] brightness-50" alt="" />
+            <div className="absolute inset-x-0 z-10 bottom-5 p-4 space-y-3">
+              <span className="border-spacing-2 border-r-2 border-teal-500 pr-2 text-sm font-medium uppercase">{articles[0].category}</span>
+              <h5 className="mb-2 text-xl	 font-medium tracking-tight text-white ">{articles[0].title}</h5>
+              <p className="mb-3 font-normal text-white">{articles[0].description}</p>
+              <a href="" className="my-4">{"بواسطة " + articles[0].author}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }
 

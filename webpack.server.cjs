@@ -3,7 +3,8 @@ import nodeExternals from 'webpack-node-externals';*/
 
 const path = require("path");
 const nodeExternals = require("webpack-node-externals");
-const webpack = require('webpack'); // remember to require this, because we DefinePlugin is a webpack plugin
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+
 
 module.exports = {
   entry: "./server/index.js",
@@ -25,12 +26,22 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(woff|woff2|ttf)$/,
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
         use: {
           loader: "url-loader",
         },
       },
     ],
   },
-  plugins: [],
+  plugins: [
+    // copy static files from `src` to `dist`
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "src/assets"),
+          to: path.resolve(__dirname, "dist/assets"),
+        },
+      ],
+    }),
+  ],
 };

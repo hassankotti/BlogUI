@@ -6,6 +6,13 @@ module.exports = {
   darkMode: "class", // or 'media' or 'class'
   theme: {
     extend: {
+     // Adds a new breakpoint in addition to the default breakpoints
+      screens: {
+        '3xl': '1600px',
+      },
+      maxWidth: {
+        "8xl": "1385px",
+      },
       colors: {
         viking: {
           DEFAULT: "#5DD5C4",
@@ -33,12 +40,44 @@ module.exports = {
           800: "#081B45",
           900: "#040D21",
         },
+        edward: {
+          DEFAULT: "#A0A8A7",
+          50: "#FFFFFF",
+          100: "#F5F6F6",
+          200: "#E0E3E2",
+          300: "#CBCFCE",
+          400: "#B5BCBB",
+          500: "#A0A8A7",
+          600: "#838D8C",
+          700: "#67716F",
+          800: "#4C5352",
+          900: "#323636",
+        },
+        "heavy-metal": {
+          BLACK: "#000000",
+          DEFAULT: "#121212",
+          50: "#BFBFBF",
+          100: "#B5B5B5",
+          200: "#A1A1A1",
+          300: "#8C8C8C",
+          400: "#787878",
+          500: "#646464",
+          600: "#4F4F4F",
+          700: "#3B3B3B",
+          800: "#262626",
+          900: "#121212",
+        },
       },
       fontFamily: {
         sans: ["DIN Next LT Arabic", ...defaultTheme.fontFamily.sans],
       },
       transitionProperty: {
         width: "width",
+      },
+      backgroundImage: {
+        hero: "url('./src/assets/articles_hero.png')",
+        hero_dark: "url('./src/assets/hero_dark.svg')",
+        features: "url('./src/assets/features.jpeg')",
       },
     },
   },

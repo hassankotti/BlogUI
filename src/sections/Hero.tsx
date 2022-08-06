@@ -8,17 +8,17 @@ const Hero = () => {
     "https://images.unsplash.com/photo-1458668383970-8ddd3927deed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60",
   ];
   return (
-    <div>
+    <section>
       <Carousel>
         {
           images.map((image, index) => {
             return (
-              <img key={index} src={image} alt="carousel" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 backdrop-invert-0 bg-gray-900" />
+              <img key={index} src={image} alt={index+''}  className="absolute object-fit block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 brightness-50 bg-heavy-metal-900/30" />
             )
           })
         }
       </Carousel>
-    </div>
+    </section>
   );
 };
 

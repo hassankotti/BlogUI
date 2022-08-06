@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import useLocalStorage from "./useLocalStorage";
+import useMedia from "./useMedia";
 
-/*import useMedia from "./useMedia";
 function useDarkMode() {
   const [theme, setTheme] = useState(
-    typeof window !== "undefined" ? localStorage.theme : "dark"
-  );
+    typeof window !== "undefined" ? localStorage.theme : "light");
   const colorTheme = theme === "dark" ? "light" : "dark";
 
   useEffect(() => {
@@ -21,7 +20,7 @@ function useDarkMode() {
 
   return [colorTheme, setTheme];
 }
-*/
+/*
 // Hook
 function useDarkMode() {
   // Use our useLocalStorage hook to persist state through a page refresh.
@@ -59,8 +58,8 @@ function useDarkMode() {
 // Thanks to hook composition we can hide away that extra complexity!
 // Read the recipe for useMedia to learn more: usehooks.com/useMedia
 function usePrefersDarkMode() {
-  return true; // useMedia(["(prefers-color-scheme: dark)"], [true], false);
+  return  useMedia(["(prefers-color-scheme: dark)"], [true], false);
 }
 
-
+*/
 export default useDarkMode;
