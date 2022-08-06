@@ -1,14 +1,20 @@
-import './App.css'
-import Home from './pages/Home';
-import { BrowserRouter, Route } from "react-router-dom";
-import ReportStudies from './pages/ReportStudies';
-import Articles from './pages/Articles';
-import Routes from './Routes';
-
+import { Router, Route } from "react-router-dom";
+import React from 'react';
+import router from './Routes'
 function App() {
 
   return (
-    <Routes />
+
+    <Router history={router.history}>
+      <Route>
+        {
+          router.routes.map((route, index) => (
+            <Route key={index} exact={route.exact} path={route.path} component={route.component} />
+          ))
+        }
+      </Route>
+    </Router>
+
   );
 }
 

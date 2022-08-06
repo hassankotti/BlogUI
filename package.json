@@ -2,31 +2,47 @@
   "name": "blogui",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev:build-server": "NODE_ENV=development webpack --config webpack.server.cjs --mode=development -w",
+    "dev:start": "nodemon ./server-build/index.js",
+    "dev": "npm-run-all --parallel build dev:*",
+    "vite": "vite"
   },
   "dependencies": {
     "@headlessui/react": "^1.6.6",
     "@heroicons/react": "^1.0.6",
+    "axios": "^0.27.2",
+    "babel-loader": "^8.2.5",
+    "copy-webpack-plugin": "^11.0.0",
+    "express": "^4.18.1",
+    "file-loader": "^6.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^5.3.3",
     "react-showdown": "^2.3.1"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-react": "^7.18.6",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react": "^2.0.0",
     "autoprefixer": "^10.4.8",
+    "nodemon": "^2.0.15",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.7",
     "tailwindcss-rtl": "^0.9.0",
     "typescript": "^4.6.4",
-    "vite": "^3.0.0"
+    "url-loader": "^4.1.1",
+    "vite": "^3.0.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-node-externals": "^3.0.0"
   }
 }

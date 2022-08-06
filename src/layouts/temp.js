@@ -30,4 +30,96 @@
 
 
 //old mark donw
- <div dangerouslySetInnerHTML={{ __html: html }} />;
+<div dangerouslySetInnerHTML={{ __html: html }} />;
+ 
+ //old menu
+
+ <div
+   className={`${
+     isMenuOpen ? "hidden" : "hidden"
+   }  'hidden  absolute top-20  bg-white border dark:border-heavy-metal-400 rounded inset-x-0 '`}>
+   <ul className='flex-col  divide-y'>
+     <li>
+       <a
+         href=''
+         className='border-teal-300 border-r block pl-3 pr-4 py-2 border-l-4  text-base font-normal text-teal-50 bg-teal-500 focus:outline-none focus:text-teal-50 focus:bg-teal-500 focus:border-teal-700 transition duration-150 ease-in-out'>
+         الرئيسية
+       </a>
+     </li>
+     <li>
+       <a
+         href=''
+         className=' border-r block pl-3 pr-4 py-2 border-l-4  text-base font-normal  focus:outline-none focus:text-teal-50 focus:bg-teal-500 focus:border-teal-700 transition duration-150 ease-in-out'>
+         المقالات
+       </a>
+     </li>
+     <li>
+       <a
+         href=''
+         className=' border-r block pl-3 pr-4 py-2 border-l-4  text-base font-normal  focus:outline-none focus:text-teal-50 focus:bg-teal-500 focus:border-teal-700 transition duration-150 ease-in-out'>
+         الدراسات والتقارير
+       </a>
+     </li>
+   </ul>
+ </div>;
+
+
+
+//navigator
+              <button
+                aria-label='Menu'
+                className='p-2  text-heavy-metal-700 rounded-md lg:hidden dark:text-heavy-metal-300 focus:outline-none' onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                <MenuIcon className='w-6 h-6' />
+              </button>
+              <a
+                href='https://kotticrm.test/dashboard'
+                className='flex items-center flex-shrink-0 '>
+                <span className='ml-1 text-heavy-metal-700 capitalize text-xl font-medium  dark:text-white'>
+                  مدونة | Blog
+                </span>
+              </a>
+            </div>
+            <div className='flex-1'>
+              <ul className='lg:flex hidden justify-start space-x-reverse space-x-12'>
+                {navlist.map((item, index) => {
+                  return <NavItem key={index} item={item} />;
+                })}
+
+              </ul>
+            </div>
+            <div className='flex items-center justify-end -ml-2 lg:w-1/5'>
+              <div className="relative flex items-center space-x-2 space-x-reverse text-heavy-metal-700 dark:text-heavy-metal-200">
+                <Search />
+                <ThemeToggle />
+
+                {/* responsice menu */}
+                <ResponsiveMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+
+              </div>
+            </div>
+
+              const [articles, setArticles] = useState();
+  const fortmatResponse = (res) => {
+    return JSON.stringify(res, null, 2);
+  };
+  async function getAllData() {
+    try {
+      const res = await getdata("/posts/1");
+
+      const result = {
+        status: res.status + "-" + res.statusText,
+        headers: res.headers,
+        data: res.data,
+      };
+      console.log('-----');
+      console.log(result);
+      console.log('-----');
+
+      setArticles(result.data);
+    } catch (err) {
+      console.log("error");
+    }
+  }
+    useEffect(() => {
+      getAllData();
+    }, []);
