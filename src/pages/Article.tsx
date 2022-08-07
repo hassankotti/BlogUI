@@ -24,7 +24,7 @@ const Article = () => {
         <Layout>
             <Helmet>
                 <title>Blog | {article.title ?? ''}</title>
-                <meta name="aricle" content={article.title ?? ''} />
+                <meta name="article" content={article.title ?? ''} />
             </Helmet>
             <ArticlesHero article={article} />
             <div className='relative min-h-screen'>
