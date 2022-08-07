@@ -10,6 +10,7 @@ function App() {
   return (
     <BrowserRouter basename="/">
       <Route>
+        <Route exact path='/' render={() => <Home />} />
         <Route exact path='/home' render={() => <Home />} />
         <Route path='/reports_and_studies' render={() => <ReportStudies />} />
         <Route path='/articles' render={() => <Articles />} />
