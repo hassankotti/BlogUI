@@ -2,8 +2,8 @@ import React from 'react'
 const Feature = () => {
 
     return (
-        <section className="h-[350px] bg-heavy-metal-900/10 mt-6 relative">
-            <div className="bg-features bg-cover bg-center object-cover [mask-image:linear-gradient(90deg,white,rgba(0,0,0,.23))] brightness-50">
+        <section className="md:h-[350px] h-72 bg-heavy-metal-900 mt-6 relative">
+            <div className="bg-features bg-cover md:h-[350px] h-72 bg-center object-cover [mask-image:linear-gradient(90deg,white,rgba(0,0,0,.23))] brightness-50">
                 <div className='md:py-8 md:px-8 px-5 py-4 xl:px-12 xl:py-16'>
                     <div className="flex flex-wrap items-center md:flex-row flex-col-reverse">
                         <div className="max-w-5xl pb-6 md:pb-0 md:px-6 flex-col md:block flex items-center justify-center md:pt-0 pt-4">

@@ -5,8 +5,8 @@ const CommentForm = () => {
         <div className="flex-col flex overflow-hidden dark:bg-heavy-metal-800 py-4 sm:py-6 px-4 md:px-6 lg:px:8 xl:px-10">
             <span className="border-r-4 border-teal-500 pr-2 mb-6 text-xl font-medium uppercase">كن اول من يعلق</span>
             <form action="#">
-                <div className="grid grid-cols-2 gap-2">
-                    <div className="col-span-2 mb-6">
+                <div className="grid md:grid-cols-2 gap-2">
+                    <div className="md:col-span-2 mb-6">
                         <label className="mb-2 block text-sm font-medium text-heavy-metal-900 dark:text-heavy-metal-300">اكتب تعلقيك</label>
                         <textarea className="input-focus"
                             placeholder="برجاء كتابة التعلقي الخاص بك"></textarea>

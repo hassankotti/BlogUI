@@ -80,7 +80,7 @@ const PopularArticles = () => {
         </div>
         <Tab.Panels className='overflow-hidden overflow-x-scroll no-scrollbar'>
           <Tab.Panel>
-            <div className="grid  gap-8 mt-9  grid-flow-col auto-cols-max" ref={scrl} onScroll={scrollCheck} id="scr">
+            <div className="grid  gap-8 mt-9  md:grid-flow-col md:auto-cols-max" ref={scrl} onScroll={scrollCheck} id="scr">
               {
                 articles.slice(0, 3).map((article, index) => {
                   return <ArticleCard article={article} key={index} />;
@@ -89,7 +89,7 @@ const PopularArticles = () => {
             </div>
           </Tab.Panel>
           <Tab.Panel>
-            <div className="grid  gap-8 mt-9  grid-flow-col auto-cols-max">
+            <div className="grid  gap-8 mt-9  md:grid-flow-col md:auto-cols-max">
               {
                 articles.slice(0, 4).map((article, index) => {
                   return <ArticleCard article={article} key={index} />;
@@ -98,7 +98,7 @@ const PopularArticles = () => {
             </div>
           </Tab.Panel>
           <Tab.Panel>
-            <div className="grid  gap-8 mt-9  grid-flow-col auto-cols-max">
+            <div className="grid  gap-8 mt-9  md:grid-flow-col md:auto-cols-max">
               {
                 articles.map((article, index) => {
                   return <ArticleCard article={article} key={index} />;
@@ -110,7 +110,7 @@ const PopularArticles = () => {
       </Tab.Group>
 
       <div>
-        <div className="flex items-start">
+        <div className="md:flex items-start">
           <div className='divide-y  p-3 space-y-0'>
             {
               articles.slice(0, 3).map((article, index) => (
@@ -125,8 +125,8 @@ const PopularArticles = () => {
               ))
             }
           </div>
-          <div className="group relative w-full h-[590px] aspect-square text-white bg-gray-900">
-            <img src={articles[0].imgUrl} className="object-cover aspect-square w-full h-[590px] [mask-image:linear-gradient(180deg,white,rgba(255,255,255,.2))] brightness-50" alt="" />
+          <div className="group relative w-full md:h-[590px] h-64 aspect-square text-white bg-gray-900">
+            <img src={articles[0].imgUrl} className="object-cover aspect-square w-full md:h-[590px] h-64 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,.2))] brightness-50" alt="" />
             <div className="absolute inset-x-0 z-10 bottom-5 p-4 space-y-3">
               <span className="border-spacing-2 border-r-2 border-teal-500 pr-2 text-sm font-medium uppercase">{articles[0].category}</span>
               <h5 className="mb-2 text-xl	 font-medium tracking-tight text-white ">{articles[0].title}</h5>

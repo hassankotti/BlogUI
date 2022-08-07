@@ -5,7 +5,7 @@ import NewsLetter from '../sections/NewsLetter'
 import LoadingSpinner from '../components/LoadingSpinner'
 import Helmet from 'react-helmet'
 import { Link } from 'react-router-dom'
-
+import NoData from '../components/NoData'
 const Artilces = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -29,6 +29,7 @@ const Artilces = () => {
               {articles ?
                 (
                   articles.map((article, index) => (
+                    article.type === 'article' ? (
                     <Link to={`/article/${article.id}`} className="flex justify-center" key={index}>
                       <div className="bg-white dark:bg-heavy-metal-800/50 max-w-sm">
                         <a href="#!">
@@ -44,8 +45,8 @@ const Artilces = () => {
                         </div>
                       </div>
                     </Link>
-                  ))
-                ) : (<div>Loading</div>)}
+                  ):('')))
+                ) : (<NoData />)}
             </>)}
         </div>
 

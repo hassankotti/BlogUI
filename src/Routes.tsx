@@ -32,11 +32,6 @@ const router = {
             component: ReportStudies,
             exact : false
         },
-       /* {
-            path: '*',
-            component: NotFound,
-            exact : false
-        },*/
     ]
 }
 
