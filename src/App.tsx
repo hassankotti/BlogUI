@@ -9,9 +9,9 @@ import NotFound from './pages/NotFound';
 function App() {
   const history = createBrowserHistory();
   return (
-    <BrowserRouter basename='/'>
+    <BrowserRouter>
       <Route>
-        <Route exact path='/home' render={() => <Home />} />
+        <Route exact path='/' render={() => <Home />} />
         <Route path='/reports_and_studies' render={() => <ReportStudies />} />
         <Route path='/articles' render={() => <Articles />} />
         <Route path='/article/:id' render={() => <Article />} />
