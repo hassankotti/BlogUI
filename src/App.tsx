@@ -5,12 +5,13 @@ import ReportStudies from './pages/ReportStudies';
 import Articles from './pages/Articles';
 import Article from './pages/Article';
 import { createBrowserHistory } from 'history';
+import NotFound from './pages/NotFound';
 function App() {
   const history = createBrowserHistory();
   return (
     <BrowserRouter basename='/BlogUI'>
       <Route>
-        <Route exact path='/' render={() => <Home />} />
+        <Route path='*' render={() => <NotFound />} />
         <Route exact path='/home' render={() => <Home />} />
         <Route path='/reports_and_studies' render={() => <ReportStudies />} />
         <Route path='/articles' render={() => <Articles />} />
