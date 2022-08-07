@@ -6,7 +6,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import NavItem from "../components/NavItem";
 import ThemeToggle from "../components/ThemeToggle";
 import Search from "../components/Search";
-import { useLocation } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 
 function classNames(...classes) {
@@ -14,7 +14,6 @@ function classNames(...classes) {
 }
 const Navbar = () => {
   const location = useLocation();
-  console.log(location.pathname)
   return (
     <nav className=' flex-col divide-y space-y-12 bg-white border-b dark:border-heavy-metal-700 dark:bg-heavy-metal-900'>
       <div className=''>
@@ -81,15 +80,15 @@ const Navbar = () => {
                             {navlist.map((item, index) => (
                               <Menu.Item key={index}>
                                 {({ active }) => (
-                                  <a
-                                    href={item.path}
+                                  <NavLink
+                                    to={item.path}
                                     className={classNames(
                                       active ? 'bg-heavy-metal-100' : '',
                                       'block px-4 py-2 text-sm text-heavy-metal-700'
                                     )}
                                   >
                                     {item.title}
-                                  </a>
+                                  </NavLink>
                                 )}
                               </Menu.Item>
                             ))}
@@ -108,19 +107,22 @@ const Navbar = () => {
               <Disclosure.Panel className="md:hidden border-t dark:border-heavy-metal-700 absolute inset-x-0 top-16 z-60 bg-white dark:bg-heavy-metal-900">
                 <div className="divide-y dark:divide-heavy-metal-700">
                   {navlist.map((item) => (
-                    <Disclosure.Button
-                      key={item.key}
-                      as="a"
-                      href={item.path}
-                      className={classNames(
-                        item.path === location.pathname ? 'text-teal-500 border-teal-500 border-r-2 hover:text-white' : ' hover:text-white dark:bg-heavy-metal-900 dark:text-white',
-                        'block px-3 py-3  text-base font-medium text-heavy-metal-300 hover:bg-heavy-metal-500/50 dark:hover:bg-heavy-metal-700/50',
-                      )}
-                      aria-current={item.path ? 'page' : undefined}
-                      aria-label={item.title}
-                    >
-                      {item.title}
-                    </Disclosure.Button>
+                    <NavLink
+                      to={item.path}>
+                      <Disclosure.Button
+                        key={item.key}
+                        as="a"
+                        href={item.path}
+                        className={classNames(
+                          item.path === location.pathname ? 'text-teal-500 border-teal-500 border-r-2 hover:text-white' : ' hover:text-white dark:bg-heavy-metal-900 dark:text-white',
+                          'block px-3 py-3  text-base font-medium text-heavy-metal-300 hover:bg-heavy-metal-500/50 dark:hover:bg-heavy-metal-700/50',
+                        )}
+                        aria-current={item.path ? 'page' : undefined}
+                        aria-label={item.title}
+                      >
+                        {item.title}
+                      </Disclosure.Button>
+                    </NavLink>
                   ))}
                 </div>
               </Disclosure.Panel>
