@@ -8,7 +8,7 @@ import { createBrowserHistory } from 'history';
 function App() {
   const history = createBrowserHistory();
   return (
-    <BrowserRouter basename='/'>
+    <BrowserRouter basename='/BlogUI'>
       <Route>
         <Route exact path='/' render={() => <Home />} />
         <Route exact path='/home' render={() => <Home />} />
