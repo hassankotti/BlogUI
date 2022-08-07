@@ -1,19 +1,19 @@
 
 let navlist = [
   {
-    key:1,
+    key: 1,
     title: "الرئيسية",
-    path: "/home",
+    path: "/BlogUI/home",
   },
   {
-    key:2,
+    key: 2,
     title: "المقالات",
-    path: "/articles",
+    path: "/BlogUI/articles",
   },
   {
-    key:3,
+    key: 3,
     title: "التقارير والدراسات",
-    path: "/reports_and_studies",
+    path: "/BlogUI/reports_and_studies",
   },
 ];
 

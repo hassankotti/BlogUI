@@ -39,7 +39,7 @@ const Navbar = () => {
                       {/*  Logo  */}
                       <div className="flex-shrink-0">
                         <a
-                          href='/home'
+                          href='BlogUI/home'
                           className='flex items-center flex-shrink-0 '>
                           <span className='ml-1 text-heavy-metal-700 capitalize text-xl font-medium  dark:text-white'>
                             مدونة | Blog

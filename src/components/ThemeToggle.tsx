@@ -14,12 +14,12 @@ const ThemeToggle = () => {
         colorTheme === "light" ? (
           <MoonIcon
             className='w-6 h-6'
-            /*onClick={() => setTheme("dark")}*/ />
+            onClick={() => setTheme("dark")} />
 
         ) : (
           <SunIcon
             className='w-6 h-6'
-            /*onClick={() => setTheme("dark")}*/ />
+            onClick={() => setTheme("light")} />
         )
       }
     </button>

@@ -8,37 +8,37 @@
     @font-face {
         font-family: 'DIN Next LT Arabic';
         font-weight: 200;
-        src: url('./assets/css/fonts/ArbFONTS-DINNextLTArabic-UltraLight-4.ttf') format('trueType');
+        src: url('./assets/fonts/ArbFONTS-DINNextLTArabic-UltraLight-4.ttf') format('trueType');
     }
 
     @font-face {
         font-family: 'DIN Next LT Arabic';
         font-weight: 300;
-        src: url('./assets/css/fonts/ArbFONTS-DINNEXTLTARABIC-LIGHT-1.ttf') format('trueType');
+        src: url('./assets/fonts/ArbFONTS-DINNEXTLTARABIC-LIGHT-1.ttf') format('trueType');
     }
 
     @font-face {
         font-family: 'DIN Next LT Arabic';
         font-weight: 400;
-        src: url('./assets/css/fonts/ArbFONTS-DINNextLTArabic-Regular-3.ttf') format('trueType');
+        src: url('./assets/fonts/ArbFONTS-DINNextLTArabic-Regular-3.ttf') format('trueType');
     }
 
     @font-face {
         font-family: 'DIN Next LT Arabic';
         font-weight: 500;
-        src: url('./assets/css/fonts/ArbFONTS-DINNextLTArabic-Medium-3.ttf') format('trueType');
+        src: url('./assets/fonts/ArbFONTS-DINNextLTArabic-Medium-3.ttf') format('trueType');
     }
 
     @font-face {
         font-family: 'DIN Next LT Arabic';
         font-weight: 600;
-        src: url('./assets/css/fonts/ArbFONTS-DINNextLTArabic-Heavy-1.ttf') format('trueType');
+        src: url('./assets/fonts/ArbFONTS-DINNextLTArabic-Heavy-1.ttf') format('trueType');
     }
 
     @font-face {
         font-family: 'DIN Next LT Arabic';
         font-weight: 700;
-        src: url('./assets/css/fonts/ArbFONTS-DINNextLTArabic-Black-3.ttf') format('trueType');
+        src: url('./assets/fonts/ArbFONTS-DINNextLTArabic-Black-3.ttf') format('trueType');
     }
 
 }
