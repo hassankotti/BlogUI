@@ -6,21 +6,22 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import NavItem from "../components/NavItem";
 import ThemeToggle from "../components/ThemeToggle";
 import Search from "../components/Search";
+import { useLocation } from 'react-router-dom'
 
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
-
+  const location = useLocation();
+  console.log(location.pathname)
   return (
     <nav className=' flex-col divide-y space-y-12 bg-white border-b dark:border-heavy-metal-700 dark:bg-heavy-metal-900'>
       <div className=''>
 
         <Disclosure as="nav">
           {({ open }) => (
-            <>
+            <div className="relative">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                   <div className="flex">
@@ -39,7 +40,7 @@ const Navbar = () => {
                       {/*  Logo  */}
                       <div className="flex-shrink-0">
                         <a
-                          href='BlogUI/home'
+                          href='/home'
                           className='flex items-center flex-shrink-0 '>
                           <span className='ml-1 text-heavy-metal-700 capitalize text-xl font-medium  dark:text-white'>
                             مدونة | Blog
@@ -60,7 +61,7 @@ const Navbar = () => {
                     <div className="ml-4 flex items-center md:ml-6">
 
 
-                      {/* Profile dropdown */}
+                      {/* Left menu */}
                       <Menu as="div" className="ml-3 relative">
                         <div className="flex items-center justify-center space-x-2 space-x-reverse">
                           <Search />
@@ -104,16 +105,16 @@ const Navbar = () => {
                 </div>
               </div>
 
-              <Disclosure.Panel className="md:hidden">
-                <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <Disclosure.Panel className="md:hidden border-t dark:border-heavy-metal-700 absolute inset-x-0 top-16 z-60 bg-white dark:bg-heavy-metal-900">
+                <div className="divide-y dark:divide-heavy-metal-700">
                   {navlist.map((item) => (
                     <Disclosure.Button
                       key={item.key}
                       as="a"
                       href={item.path}
                       className={classNames(
-                        item.path ? 'dark:bg-heavy-metal-900 dark:text-white' : 'text-heavy-metal-300 hover:bg-heavy-metal-100 hover:text-white',
-                        'block px-3 py-2  text-base font-medium'
+                        item.path === location.pathname ? 'text-teal-500 border-teal-500 border-r-2 hover:text-white' : ' hover:text-white dark:bg-heavy-metal-900 dark:text-white',
+                        'block px-3 py-3  text-base font-medium text-heavy-metal-300 hover:bg-heavy-metal-500/50 dark:hover:bg-heavy-metal-700/50',
                       )}
                       aria-current={item.path ? 'page' : undefined}
                       aria-label={item.title}
@@ -123,7 +124,7 @@ const Navbar = () => {
                   ))}
                 </div>
               </Disclosure.Panel>
-            </>
+            </div>
           )}
         </Disclosure>
       </div>

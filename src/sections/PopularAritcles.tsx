@@ -82,7 +82,7 @@ const PopularArticles = () => {
           <Tab.Panel>
             <div className="grid  gap-8 mt-9  md:grid-flow-col md:auto-cols-max" ref={scrl} onScroll={scrollCheck} id="scr">
               {
-                articles.slice(0, 3).map((article, index) => {
+                articles.map((article, index) => {
                   return <ArticleCard article={article} key={index} />;
                 })
               }
@@ -100,7 +100,7 @@ const PopularArticles = () => {
           <Tab.Panel>
             <div className="grid  gap-8 mt-9  md:grid-flow-col md:auto-cols-max">
               {
-                articles.map((article, index) => {
+                articles.slice(0, 3).map((article, index) => {
                   return <ArticleCard article={article} key={index} />;
                 })
               }
@@ -110,8 +110,8 @@ const PopularArticles = () => {
       </Tab.Group>
 
       <div>
-        <div className="md:flex items-start">
-          <div className='divide-y  p-3 space-y-0'>
+        <div className="md:flex items-start mt-10">
+          <div className='divide-y p-3'>
             {
               articles.slice(0, 3).map((article, index) => (
                 <div key={index} className="flex flex-col items-start md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-800  dark:hover:bg-heavy-metal-700 px-2 py-3">
@@ -125,8 +125,8 @@ const PopularArticles = () => {
               ))
             }
           </div>
-          <div className="group relative w-full md:h-[590px] h-64 aspect-square text-white bg-gray-900">
-            <img src={articles[0].imgUrl} className="object-cover aspect-square w-full md:h-[590px] h-64 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,.2))] brightness-50" alt="" />
+          <div className="group relative w-full md:h-[590px] h-64 aspect-square text-white bg-gray-900 rounded">
+            <img src={articles[0].imgUrl} className="object-cover rounded aspect-square w-full md:h-[590px] h-64 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,.2))] brightness-50" alt="" />
             <div className="absolute inset-x-0 z-10 bottom-5 p-4 space-y-3">
               <span className="border-spacing-2 border-r-2 border-teal-500 pr-2 text-sm font-medium uppercase">{articles[0].category}</span>
               <h5 className="mb-2 text-xl	 font-medium tracking-tight text-white ">{articles[0].title}</h5>
