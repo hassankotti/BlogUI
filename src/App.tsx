@@ -11,7 +11,6 @@ function App() {
   return (
     <BrowserRouter basename='/BlogUI'>
       <Route>
-        <Route path='*' render={() => <NotFound />} />
         <Route exact path='/home' render={() => <Home />} />
         <Route path='/reports_and_studies' render={() => <ReportStudies />} />
         <Route path='/articles' render={() => <Articles />} />
