@@ -10,7 +10,7 @@ import LoadingSpinner from '../components/LoadingSpinner'
 import Helmet from 'react-helmet'
 import { useParams } from 'react-router-dom'; import NoData from '../components/NoData';
 const Article = () => {
-    let params = useParams();
+    let params = useParams < article_params>();
     const article = articles[params.id ?? 0];
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
@@ -24,7 +24,7 @@ const Article = () => {
         <Layout>
             <Helmet>
                 <title>Blog | {article.title ?? ''}</title>
-                <meta name="aricle" content={article.title??''} />
+                <meta name="aricle" content={article.title ?? ''} />
             </Helmet>
             <ArticlesHero article={article} />
             <div className='relative min-h-screen'>
@@ -39,5 +39,7 @@ const Article = () => {
         </Layout>
     )
 }
-
+type article_params = {
+    id: string;
+};
 export default Article
