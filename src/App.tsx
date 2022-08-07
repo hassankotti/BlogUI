@@ -9,7 +9,7 @@ import NotFound from './pages/NotFound';
 function App() {
   const history = createBrowserHistory();
   return (
-    <BrowserRouter basename='/BlogUI'>
+    <BrowserRouter basename='/'>
       <Route>
         <Route exact path='/home' render={() => <Home />} />
         <Route path='/reports_and_studies' render={() => <ReportStudies />} />
