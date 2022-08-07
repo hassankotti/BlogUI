@@ -11,7 +11,7 @@ import App from "../src/App";
 const PORT = process.env.PORT || 3006;
 const app = express();
 
-app.get("/", (req, res) => {
+app.get("/*", (req, res) => {
   const context = {};
   // get HTML string from the `App` component
   let appHTML = ReactDOMServer.renderToString(
@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
       <App />
     </StaticRouter>
   );
-  const app = ReactDOMServer.renderToString(<App />);
+   const app = ReactDOMServer.renderToString(<App />);
   const indexFile = path.resolve("./dist/index.html");
 
   fs.readFile(indexFile, "utf8", (err, data) => {
@@ -35,6 +35,7 @@ app.get("/", (req, res) => {
 });
 
 app.use(express.static("./dist"));
+app.use(express.static(__dirname + "/dist"));
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);

@@ -1,20 +1,23 @@
-import { Router, Route,Switch } from "react-router-dom";
 import React from 'react';
-import router from './Routes'
-import NotFound from "./pages/NotFound";
+import { Router, Route ,HashRouter} from "react-router-dom";
+import Home from './pages/Home';
+import ReportStudies from './pages/ReportStudies';
+import Articles from './pages/Articles';
+import Article from './pages/Article';
+import { createMemoryHistory } from "history";
+
 function App() {
+  const history = createMemoryHistory();
 
   return (
 
-    <Router history={router.history}>
-      <Switch>
-        {
-          router.routes.map((route, index) => (
-            <Route key={index} exact={route.exact} path={route.path} component={route.component} />
-          ))
-        }
-        <Route component={NotFound} />
-      </Switch>
+    <Router history={history}>
+      <Route>
+        <Route exact path='/home' render={() => <Home />} />
+        <Route path='/reports_and_studies' render={() => <ReportStudies />} />
+        <Route path='/articles' render={() => <Articles />} />
+        <Route path='/article/:id' render={() => <Article />} />
+      </Route>
     </Router>
 
   );
