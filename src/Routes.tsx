@@ -3,34 +3,33 @@ import { createBrowserHistory, createMemoryHistory } from "history";
 import Articles from './pages/Articles';
 import Article from './pages/Article';
 import Home from './pages/Home';
-import NotFound from './pages/NotFound';
 import ReportStudies from './pages/ReportStudies';
 
-const routerHistory = createBrowserHistory()
-const history = createMemoryHistory();
+
+const history = createMemoryHistory();// process.env.NODE_ENV == 'development' ?: createBrowserHistory();
 
 const router = {
-    history: routerHistory,
+    history: history,
     routes: [
         {
             path: '/home',
             component: Home,
-            exact : true
+            exact: true
         },
         {
             path: '/articles',
             component: Articles,
-            exact : false
+            exact: false
         },
         {
             path: '/article/:id',
             component: Article,
-            exact : false
+            exact: false
         },
         {
             path: '/reports_and_studies',
             component: ReportStudies,
-            exact : false
+            exact: false
         },
     ]
 }

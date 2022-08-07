@@ -1,5 +1,3 @@
-/*import  path  from 'path';
-import nodeExternals from 'webpack-node-externals';*/
 
 const path = require("path");
 const nodeExternals = require("webpack-node-externals");
@@ -14,6 +12,10 @@ module.exports = {
     path: path.resolve("server-build"),
     filename: "index.js",
     globalObject: "this",
+    publicPath: "/",
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   resolve: {
     extensions: [".js", ".json", ".tsx", ".ts"],
@@ -22,11 +24,11 @@ module.exports = {
     rules: [
       {
         loader: "babel-loader",
-        test: /\.js$|jsx$|tsx/,
+        test: /\.js$|jsx$|tsx$|ts/,
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        test: /\.(png|woff|woff2|eot|ttf|svg|jpg|jpeg)$/,
         use: {
           loader: "url-loader",
         },
