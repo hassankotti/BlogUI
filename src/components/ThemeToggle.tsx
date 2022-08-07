@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import useDarkMode from "../hooks/useDarkMode";
 import { MoonIcon, SunIcon } from "@heroicons/react/outline"
 
 const ThemeToggle = () => {
-  const [colorTheme, setTheme] = useDarkMode();
-
+  const colorTheme = "light";
   return (
     <button
       aria-label='Color-Mode'
@@ -14,12 +12,12 @@ const ThemeToggle = () => {
         colorTheme === "light" ? (
           <MoonIcon
             className='w-6 h-6'
-           /* onClick={() => setTheme("dark")}*/ />
+           />
 
         ) : (
           <SunIcon
             className='w-6 h-6'
-           /* onClick={() => setTheme("light")}*/ />
+            />
         )
       }
     </button>
