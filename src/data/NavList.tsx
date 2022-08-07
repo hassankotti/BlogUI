@@ -3,7 +3,7 @@ let navlist = [
   {
     key: 1,
     title: "الرئيسية",
-    path: "/",
+    path: "/home",
   },
   {
     key: 2,

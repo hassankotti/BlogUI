@@ -32,7 +32,7 @@ const ReportStudies = () => {
                   articles.map((article, index) => (
                     article.type === 'report' ? (
                       <Link to={`/article/${article.id}`} className="flex justify-center" key={index}>
-                        <div className="bg-white dark:bg-heavy-metal-800/50 max-w-sm">
+                        <div className="bg-white dark:bg-heavy-metal-800/50 md:max-w-sm">
                           <a href="#!">
                             <img className="object-cover aspect-video" src={article.imgUrl ?? '-'} alt="" />
                           </a>

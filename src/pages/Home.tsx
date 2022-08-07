@@ -27,7 +27,7 @@ const Home = () => {
       </Helmet>
       {/*  Site sections */}
       <Hero />
-      <div className='max-w-7xl mx-auto flex-col divide-y dark:divide-heavy-metal-800 space-y-12 relative min-h-screen'>
+      <div className='max-w-7xl mx-auto flex-col divide-y dark:divide-heavy-metal-800 space-y-12 relative min-h-screen px-4'>
         {isLoading ? <LoadingSpinner /> : (
           <>
             <MostRead />

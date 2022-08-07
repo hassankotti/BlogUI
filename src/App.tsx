@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Router, BrowserRouter } from "react-router-dom";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Home from './pages/Home';
 import ReportStudies from './pages/ReportStudies';
 import Articles from './pages/Articles';
@@ -9,12 +9,16 @@ import NotFound from './pages/NotFound';
 function App() {
   const history = createBrowserHistory();
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/'>
       <Route>
-        <Route exact path='/' render={() => <Home />} />
-        <Route path='/reports_and_studies' render={() => <ReportStudies />} />
-        <Route path='/articles' render={() => <Articles />} />
-        <Route path='/article/:id' render={() => <Article />} />
+        <Switch>
+          <Route path='/' exact render={() => <Home />} />
+          <Route path='/home' exact render={() => <Home />} />
+          <Route path='/reports_and_studies' render={() => <ReportStudies />} />
+          <Route path='/articles' render={() => <Articles />} />
+          <Route path='/article/:id' render={() => <Article />} />
+          <Route path='*' render={() => <NotFound />} />
+        </Switch>
       </Route>
     </BrowserRouter>
 

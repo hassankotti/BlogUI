@@ -6,9 +6,9 @@ module.exports = {
   darkMode: "class", // or 'media' or 'class'
   theme: {
     extend: {
-     // Adds a new breakpoint in addition to the default breakpoints
+      // Adds a new breakpoint in addition to the default breakpoints
       screens: {
-        '3xl': '1600px',
+        "3xl": "1600px",
       },
       maxWidth: {
         "8xl": "1385px",
@@ -74,12 +74,41 @@ module.exports = {
       transitionProperty: {
         width: "width",
       },
+      zIndex: {
+        60: "60",
+      },
       backgroundImage: {
-        hero: "url('./src/assets/articles_hero.png')",
-        hero_dark: "url('./src/assets/hero_dark.svg')",
-        features: "url('./src/assets/features.jpeg')",
+        hero: "url('https://s3-alpha-sig.figma.com/img/a8aa/b005/6d5fdb3c18e36ee1a2483abfdb503295?Expires=1660521600&Signature=N2h2b9UzwJnnxUPIutlUNLfzc3~jqcW2qbHohFRJGYLF0rruAc-genPNejBc3QDjSjRkOwut3Mjbikset58Olcqd2vphzW0CwDLMN1S02KCKMZFLxEqAWXg0qwnDw21w3cLF7bDT9nFRbWRFlIX2x6CNbVJ3JdbrBqxDVXoFMaYFZOaJtq~5kGkwtr9SOWHZqYJQEHT~rLmXYyzsao6dXTjzhyXP6dHk8eqAFBm5V7iGwbTfQJ1UakBX02nsXmBJsFjzD50AVxHOyGMRf8wmQzwhDPhVXPlmdNu2JKwhtPpfrVL6-b8HkiU4L-70kUVYbrUh3MnzuToMn1Hr5rTmuQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA')",
+        hero_dark:
+          "url('https://s3-alpha-sig.figma.com/img/c419/e6fd/8e640b83b5226fc9565bfc261a12e79e?Expires=1660521600&Signature=PGLqBbjZCgPeyeZmon5Ew8rgHMRKESRR18t2q1sfxnjTGlumC9iaJOdzEGptVhRnJ8fQBQjP1kxCAyQ47CvaaEB9RfKroHGllzCqeOl28mk5V-cxpQ7kmh1HRG~OvVylxaGZiuvNcM2z98DjvFS0JEzPFHSNWVclgkjUpTGrBYD~ahAB0SHn3WK6QDak97gnyeFlgZ2EXuFwVneqdqHQZjjWqZKYFNC8wnh52lRW9E3a-cU6P~-p2DFqssu2XAB4SsDG8ztj80c8CkW4tbQG7FmH14EMGntZ6bw~SaxJRCBr5E7mVkjimsD55MCUk-Y27H4YIzdkurfLVXlTV~zlnQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA')",
+        features:
+          "url('https://s3-alpha-sig.figma.com/img/56a1/fe87/b1cd12a611afdad3db9d8fe558ff5432?Expires=1660521600&Signature=ErFIVdLcs3VbRmWPf8cpQnSQQO1UKmbgNO9cTFCVifmyvwK2qBMFa4lG0h8NowwqrPdbEFau4uoKVNevhqRx6uAxoijouAhVVqrzNMLt-Uj3NU9B8bYJOH0jGrDUOpe5vmG2CboEwRXXYMXiZQry8Km9AVL1EiJY5ljuBj7IVUfybScW19moEeh-YDNYOGRkdBF~PpHGVTanNad2qmTwLYJz1S5mTN~vASG07mMrN~J7jpquyr0~BfczngevrptHi-oslEtf37JvrjW8fLXLa4TCw18rTLrDV-QcHgA2S4e0AKJMUQwVMI1hzFwSZ-J1P8lJ6mzjrDd~~oCnw1CVQA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA')",
+      },
+      aspectRatio: {
+        auto: "auto",
+        square: "1 / 1",
+        video: "16 / 9",
+        1: "1",
+        2: "2",
+        3: "3",
+        4: "4",
+        5: "5",
+        6: "6",
+        7: "7",
+        8: "8",
+        9: "9",
+        10: "10",
+        11: "11",
+        12: "12",
+        13: "13",
+        14: "14",
+        15: "15",
+        16: "16",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/aspect-ratio"),
+  ],
 };
