@@ -14,9 +14,9 @@ const MostRead = () => {
             </div>
 
             <div className="flex-col">
-                <div className="grid gap-8 my-9 grid-flow-col auto-cols-max overflow-hidden overflow-x-scroll no-scrollbar">
+                <div className="grid gap-8 my-9 md:grid-flow-col md:auto-cols-max overflow-hidden overflow-x-scroll no-scrollbar">
                     {articles.slice(0, 3).map((article, index) => (
-                        <div key={index} className="group relative w-[405px] h-[280px] aspect-square text-white bg-heavy-metal-900">
+                        <div key={index} className="group relative w-full md:w-[405px] h-[280px] aspect-square text-white bg-heavy-metal-900">
                             <img src={article.imgUrl} className="object-cover aspect-square w-[594px] h-[353px] [mask-image:linear-gradient(180deg,white,rgba(255,255,255,.2))] brightness-50" alt="" />
 
                             <div className="absolute inset-x-0 z-10 bottom-2 p-4 space-y-3">
@@ -30,7 +30,7 @@ const MostRead = () => {
                     ))}
                 </div>
                 <div className="grid md:grid-cols-2 gap-3 place-items-start">
-                    <div className="flex-col  col-span-0 row-span-3 ">
+                    <div className="flex-col  md:row-span-3 ">
                         <img src={articles[0].imgUrl} className="object-cover md:w-full aspect-video w-[594px] h-[353px]" alt="" />
                         <div className="flex-col items-start h-[0px]  py-3">
                             <span className="border-spacing-2 border-r-2 border-teal-500 pr-2 text-sm font-medium uppercase">{articles[0].category}</span>
@@ -41,8 +41,8 @@ const MostRead = () => {
                     </div>
                     {
                         articles.slice(0, 3).map((article, index) => (
-                            <div key={index} className="flex flex-col col-span-0 items-start md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-800 dark:bg-heavy-metal-900 dark:hover:bg-heavy-metal-700 ">
-                                <img className="object-fit w-48 h-40 " src={article.imgUrl} alt="" />
+                            <div key={index} className="md:flex flex-col  items-start md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-800 dark:bg-heavy-metal-900 dark:hover:bg-heavy-metal-700 ">
+                                <img className="object-fit w-full md:w-48 h-40 " src={article.imgUrl} alt="" />
                                 <div className="flex flex-col justify-between pr-4 leading-normal space-y-3">
                                     <span className="border-spacing-2 border-r-2 border-teal-500 pr-2 text-sm font-medium uppercase">{article.category}</span>
                                     <h5 className="mb-2 text-xl	 font-medium tracking-tight text-heavy-metal-900 dark:text-white">{article.title}</h5>

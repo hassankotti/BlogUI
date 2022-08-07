@@ -16,6 +16,6 @@ const colorTheme = theme === "dark" ? "light" : "dark";
     }
   }, [theme]);
 
-  return [colorTheme, setTheme] as const;
+  return [colorTheme, setTheme];
 }
 export default useDarkMode;

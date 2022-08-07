@@ -4,7 +4,8 @@ import Layout from '../layouts/Layout'
 import NewsLetter from '../sections/NewsLetter'
 import LoadingSpinner from '../components/LoadingSpinner';
 import Helmet from 'react-helmet'
-
+import {Link} from 'react-router-dom';
+import NoData from '../components/NoData';
 const ReportStudies = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,23 +30,24 @@ const ReportStudies = () => {
               {articles ?
                 (
                   articles.map((article, index) => (
-                    <div className="flex justify-center" key={index}>
-                      <div className="bg-white dark:bg-heavy-metal-800/50 max-w-sm">
-                        <a href="#!">
-                          <img className="object-cover aspect-video" src={article.imgUrl ?? '-'} alt="" />
-                        </a>
-                        <div className="p-4 space-y-4 ">
-                          <span className="border-r-2 border-teal-500 pr-2 text-sm font-medium uppercase">{article.category ?? '-'}</span>
-                          <h5 className="text-heavy-metal-900 dark:text-heavy-metal-50 text-xl font-medium">{article.title ?? '-'}</h5>
-                          <p className="text-heavy-metal-700 dark:text-heavy-metal-200 text-base">
-                            {article.description ?? "No description"}
-                          </p>
-                          <a href="" className='text-sm'>{"بواسطة " + article.author ?? '-'}</a>
+                    article.type === 'report' ? (
+                      <Link to={`/article/${article.id}`} className="flex justify-center" key={index}>
+                        <div className="bg-white dark:bg-heavy-metal-800/50 max-w-sm">
+                          <a href="#!">
+                            <img className="object-cover aspect-video" src={article.imgUrl ?? '-'} alt="" />
+                          </a>
+                          <div className="p-4 space-y-4 ">
+                            <span className="border-r-2 border-teal-500 pr-2 text-sm font-medium uppercase">{article.category ?? '-'}</span>
+                            <h5 className="text-heavy-metal-900 dark:text-heavy-metal-50 text-xl font-medium">{article.title ?? '-'}</h5>
+                            <p className="text-heavy-metal-700 dark:text-heavy-metal-200 text-base">
+                              {article.description ?? "No description"}
+                            </p>
+                            <a href="" className='text-sm'>{"بواسطة " + article.author ?? '-'}</a>
+                          </div>
                         </div>
-                      </div>
-                    </div>
+                      </Link>) : ('')
                   ))
-                ) : (<div>Loading</div>)}
+                ) : (<NoData />)}
             </>)}
         </div>
       </div>

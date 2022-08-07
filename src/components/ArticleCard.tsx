@@ -1,7 +1,7 @@
 import React from 'react'
 const ArticleCard = ({ article }) => {
     return (
-        <div className="w-64 border bg-white dark:bg-heavy-metal-800 dark:border-heavy-metal-700 overflow-hidden">
+        <div className="md:w-64 w-full border bg-white dark:bg-heavy-metal-800 dark:border-heavy-metal-700 overflow-hidden">
             <div className="flex-col items-center overflow-hidden">
                 <img className="aspect-square object-cover" src={article.imgUrl} alt="" />
                 <div className="flex-col items-start px-3 py-3">
