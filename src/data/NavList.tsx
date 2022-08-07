@@ -3,17 +3,17 @@ let navlist = [
   {
     key: 1,
     title: "الرئيسية",
-    path: "/BlogUI/home",
+    path: "/home",
   },
   {
     key: 2,
     title: "المقالات",
-    path: "/BlogUI/articles",
+    path: "/articles",
   },
   {
     key: 3,
     title: "التقارير والدراسات",
-    path: "/BlogUI/reports_and_studies",
+    path: "/reports_and_studies",
   },
 ];
 
